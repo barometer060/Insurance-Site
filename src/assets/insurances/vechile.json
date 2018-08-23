@@ -1,0 +1,4 @@
+{
+  "two wheeler": ["What is brand of the respective 2 wheeler", "Which year was it bought", "Enter Engine number", "Distance travelled"],
+  "four wheeler": ["What is brand of the respective 4 wheeler", "Which year was it bought", "Enter Engine number", "Distance travelled"]
+}

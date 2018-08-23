@@ -1,0 +1,18 @@
+<div class="container">
+  <ul class="nav nav-pills">
+    <li class="nav-item" *ngFor="let type of types">
+      <a class="nav-link bg-dark mr-2 text-white" (click)="getQuestion($event)" [id]="type">{{type | uppercase}}</a>
+    </li>
+  </ul>
+
+  <div *ngIf="setQuestions" class="mt-5">
+    <form class="form" #myForm="ngForm" (submit)="submitData($event);myform.reset()">
+      <div class="form-group" *ngFor="let ques of questions;let i=index">
+        <label>{{ques}}</label>
+        <input type="text" class="form-control" (blur)="getValue($event)" [id]="i">
+      </div>
+      <button type="button" class="btn btn-primary">Submit Data</button>
+    </form>
+  </div>
+
+</div>
