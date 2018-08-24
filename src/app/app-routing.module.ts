@@ -8,15 +8,18 @@ import { HomeInsuranceComponent } from "./home-insurance/home-insurance.componen
 import { MedicalInsuranceComponent } from "./medical-insurance/medical-insurance.component";
 
 const routes: Routes = [
-  { path: "home", redirectTo: "", component: HomeComponent },
-  { path: "sign_in", component: SignInComponent },
-  { path: "vechile_insurance", component: VechileInsuranceComponent },
-  { path: "home_insurance", component: HomeInsuranceComponent },
-  { path: "medical_insurance", component: MedicalInsuranceComponent }
+  { path: "", component: SignInComponent }
+  {
+    path: "home", component: HomeComponent, children: [
+      { path: "vechile_insurance", component: VechileInsuranceComponent, outlet: "questions" },
+      { path: "home_insurance", component: HomeInsuranceComponent, outlet: "questions" },
+      { path: "medical_insurance", component: MedicalInsuranceComponent, outlet: "questions" }]
+  },
+  { path: "sign_in", redirectTo: "", component: SignInComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

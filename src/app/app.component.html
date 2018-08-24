@@ -1,6 +1,4 @@
 <div>
-  <!-- <app-sign-in>Loading</app-sign-in> -->
-  <!-- <app-vechile-insurance></app-vechile-insurance> -->
-  <app-home></app-home>
+  <app-home *ngIf="routerLink==='home'"></app-home>
   <router-outlet></router-outlet>
 </div>

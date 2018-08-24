@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { SignInService } from "../sign-in.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-sign-in",
@@ -12,13 +13,21 @@ export class SignInComponent implements OnInit {
   sign_in: boolean = false;
   signForm: FormGroup;
   userDetails: Object;
-  constructor(private fb: FormBuilder, private ser: SignInService) {}
+  constructor(
+    private fb: FormBuilder,
+    private ser: SignInService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.signForm = this.fb.group({
       username: ["", Validators.required],
       password: ["", Validators.required]
     });
+    // console.log(this.ser.getSignIn());
+    // if (this.ser.getSignIn()) {
+    //   this.router.navigateByUrl("/home");
+    // }
   }
 
   signIn(e) {
@@ -36,6 +45,8 @@ export class SignInComponent implements OnInit {
       ) {
         this.sign_in = true;
         console.log(`Welcome ${user}`);
+        this.ser.setSign();
+        this.router.navigateByUrl("/home");
       }
     });
   }

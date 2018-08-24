@@ -1,7 +1,7 @@
 <div class="container">
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Home</a>
+      <a class="nav-link active" route>Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">About Us</a>
@@ -16,14 +16,15 @@
   <h3>Insurance</h3>
   <ul>
     <li>
-      <a routerLink="/vechile_insurance">Vechile</a>
+      <a [routerLink]="[{outlets : {questions:['vechile_insurance']}}]">Vechile</a>
     </li>
     <li>
-      <a routerLink="/home_insurance">Home</a>
+      <a [routerLink]="[{outlets:{questions:['home_insurance']}}]">Home</a>
     </li>
     <li>
-      <a routerLink="/medical_insurance">Medical</a>
+      <a [routerLink]="[{outlets:{questions:['medical_insurance']}}]">Medical</a>
     </li>
   </ul>
 </div>
 <hr>
+<router-outlet name="questions"></router-outlet>
